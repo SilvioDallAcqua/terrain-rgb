@@ -5,7 +5,7 @@ Create a terrain-rgb from swissaltiregio
 
 For a live demo see [https://swiss.mapview.ch/ml](https://swiss.mapview.ch/ml)
 
-<a href="[https://swiss.mapview.ch/ml" target="_blank">https://swiss.mapview.ch/ml</a>
+<a href="https://swiss.mapview.ch/ml" target="_blank">https://swiss.mapview.ch/ml</a>
 
 This repoitory explains in detail how to create a terran-rgb from the [swissALTIRegio](https://www.swisstopo.admin.ch/en/height-model-swissaltiregio) digital elevation model (DEM) from swisstopo. swissALTIRegio is a small scale digital height model that describes the surface without vegetation nor construction of Switzerland and regions of its neighbouring countries.
 
