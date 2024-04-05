@@ -88,7 +88,7 @@ We have to create a file ./tiles/metadata.json describing the tileset:
   "description": "terrainrgb for swissALTIRegio",
   "version: "1",
   "minzoom": 5,
-  "maxzoom": 15,
+  "maxzoom": 13,
   "attribuition": "Bundesamt für Landestopografie swisstopo; Tarquini S., I. Isola, M. Favalli, A. Battistini, G. Dotta (2023). TINITALY, a digital elevation model of Italy with a 10 meters cell size (Version 1.1). Istituto Nazionale di Geofisica e Vulcanologia (INGV). https://doi.org/10.13127/tinitaly/1.1; DGM Österreich, geoland.at; DGM1, Bayerische Vermessungsverwaltung – www.geodaten.bayern.de; EU-DEM, provided under COPERNICUS by the European Union and ESA, all rights reserved; RGEAlti, Institut National de l’information géographique et forestière, données originales tétéchargées sur https://geoservices.ign.fr/rgealti#telechargement5m, mise à jour du juillet 2023"
 }
 ```
