@@ -1,6 +1,8 @@
 # terrain-rgb
 Create a terrain-rgb from swissaltiregio
 
+![1](./images/10.png)
+
 This repoitory explains in detail how to create a terran-rgb from the [swissALTIRegio](https://www.swisstopo.admin.ch/en/height-model-swissaltiregio) digital elevation model (DEM) from swisstopo. swissALTIRegio is a small scale digital height model that describes the surface without vegetation nor construction of Switzerland and regions of its neighbouring countries.
 
 The dataset is delivered by swisstopo as a grid with a cellsize of 10m. In this guidance the Cloud Optimized Geotiff (COG,LZW-copression 12 GB / complete coverage) is used as a starting point.
@@ -33,7 +35,7 @@ Since maplibre can only visualize data in EPSG:3857 we reproject the dataset to 
 - the reprojected file is named swissaltiregio_3857.tif
 
 ## step 3: create rgb tiles
-For creation of the rgb-tiles rasterio is used with the plugin rgbify
+For creation of the rgb-tiles rasterio is used with the plugin rgbify. The use of rgbify produces an error. This is addressed [here](rgbify.md).
 
 ```rio rgbify -b -10000 -i 0.1 --max-z 13 --min-z 5 --format webp -j 16 swissaltiregio_3857.tif swissaltiregio.mbtiles```
 
