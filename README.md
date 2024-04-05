@@ -1,5 +1,5 @@
 # terrain-rgb
-Create a terrain-rgb from swissaltiregio
+Create a terrain-rgb from swissALTIRegio
 
 ![1](./images/10.png)
 
@@ -101,3 +101,12 @@ mb-util --image-format=webp ./tiles/ swissaltiregio.mbtiles
 ```
 
 This file is of size 1.6 GB which is half of the size without the rounding
+
+## Results
+With the new terrain-rgb the accuracy ist better than the one, when using the terrain from maptiler (https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=xxx). With the maptiler dem buildings tend to vanish in the ground (as we can see on the red marked places):
+
+![1](./images/70.png)
+
+
+the same scen rendered with the terrain-rgb produced out of swissALTIRegio:
+![1](./images/60.png)
