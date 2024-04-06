@@ -1,7 +1,7 @@
 # terrain-rgb
 Create a terrain-rgb from swissALTIRegio
 
-![1](./images/10.png)
+![1](./images/11.png)
 
 For a live demo see [https://swiss.mapview.ch/ml](https://swiss.mapview.ch/ml) (click on the 3D button, work in progesss)
 
