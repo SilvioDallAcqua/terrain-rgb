@@ -49,7 +49,7 @@ For creation of the rgb-tiles rasterio is used with the plugin rgbify. The use o
   It is important to use this the lossless compression, as lossy compression would produce artifacts. It seems that this is the default of rgbify
 - The final swissaltiregio.mbtiles has a size of 3.2 GB and could be used directly by tileserver-gl
 
-As outlined by Frédéric Rodrigo in [Optimization of RGB DEM tiles for dynamic hill shading with Mapbox GL or MapLibre GL](https://medium.com/@frederic.rodrigo/optimization-of-rgb-dem-tiles-for-dynamic-hill-shading-with-mapbox-gl-or-maplibre-gl-55bef8eb3d86) the size of 3.2 GB can be optimized by rounding the less relevant bits of the rgb encoding to 0. This allows a more efficient compression of the webp-image-tiles. The rounding will be different according to the zoomlevel. On low zoomlevels we can have a bigger rounding than in high zoomlevels. For this to be done we have to replace the rgbify command by the following command per zoomlevel. (The use of the parameter --round-digits produces an error because it is not in the default distribution of rgbify when installed via pip. This issue is addressed [here](rgbify.md)
+As outlined by Frédéric Rodrigo in [Optimization of RGB DEM tiles for dynamic hill shading with Mapbox GL or MapLibre GL](https://medium.com/@frederic.rodrigo/optimization-of-rgb-dem-tiles-for-dynamic-hill-shading-with-mapbox-gl-or-maplibre-gl-55bef8eb3d86) the size of 3.2 GB can be optimized by rounding the less relevant bits of the rgb encoding to 0. This allows a more efficient compression of the webp-image-tiles. The rounding will be different according to the zoomlevel. On low zoomlevels we can have a bigger rounding than in high zoomlevels. For this to be done we have to replace the rgbify command by the following commands per zoomlevel. (The use of the parameter --round-digits produces an error because it is not in the default distribution of rgbify when installed via pip. This issue is addressed [here](rgbify.md) )
 ```
 rio rgbify -b -10000 -i 0.1 --max-z 5 --min-z 5 --format webp -j 16 --round-digits 11 swissaltiregio_3857.tif swissaltiregio_05.mbtiles
 rio rgbify -b -10000 -i 0.1 --max-z 6 --min-z 6 --format webp -j 16 --round-digits 10 swissaltiregio_3857.tif swissaltiregio_06.mbtiles
@@ -79,8 +79,8 @@ mb-util --image-format=webp swissaltiregio_06.mbtiles ./tiles06
 ```
 This produces a folder for each zoom-level
 
-We merge this folder so that all zoomlevels are in a single folder ./tiles
-We have to create a file ./tiles/metadata.json describing the tileset:
+We copy these folders together in one single ./tiles folder
+Then we have to create a file ./tiles/metadata.json describing the tileset:
 ```
 {
   "format": "webp",
@@ -92,6 +92,7 @@ We have to create a file ./tiles/metadata.json describing the tileset:
   "attribuition": "Bundesamt für Landestopografie swisstopo; Tarquini S., I. Isola, M. Favalli, A. Battistini, G. Dotta (2023). TINITALY, a digital elevation model of Italy with a 10 meters cell size (Version 1.1). Istituto Nazionale di Geofisica e Vulcanologia (INGV). https://doi.org/10.13127/tinitaly/1.1; DGM Österreich, geoland.at; DGM1, Bayerische Vermessungsverwaltung – www.geodaten.bayern.de; EU-DEM, provided under COPERNICUS by the European Union and ESA, all rights reserved; RGEAlti, Institut National de l’information géographique et forestière, données originales tétéchargées sur https://geoservices.ign.fr/rgealti#telechargement5m, mise à jour du juillet 2023"
 }
 ```
+In the next image we see the directory layout used for the next step
 ![5](./images/50.png)
 
 ### create the final mbtiles file
